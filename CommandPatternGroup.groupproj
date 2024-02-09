@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{919C4FA9-3D7C-40B8-8A21-20F2776DF580}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CommandPattern.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CommandPatternTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CommandPattern">
+        <MSBuild Projects="CommandPattern.dproj"/>
+    </Target>
+    <Target Name="CommandPattern:Clean">
+        <MSBuild Projects="CommandPattern.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CommandPattern:Make">
+        <MSBuild Projects="CommandPattern.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CommandPatternTest">
+        <MSBuild Projects="CommandPatternTest.dproj"/>
+    </Target>
+    <Target Name="CommandPatternTest:Clean">
+        <MSBuild Projects="CommandPatternTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CommandPatternTest:Make">
+        <MSBuild Projects="CommandPatternTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CommandPattern;CommandPatternTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CommandPattern:Clean;CommandPatternTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CommandPattern:Make;CommandPatternTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

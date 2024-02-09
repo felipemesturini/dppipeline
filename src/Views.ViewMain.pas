@@ -11,15 +11,14 @@ uses
   Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
-  Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Dialogs,
+  Vcl.StdCtrls;
 
 type
   TViewMain = class(TForm)
     Button1: TButton;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

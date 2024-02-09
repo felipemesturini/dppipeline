@@ -12,11 +12,11 @@ object ViewMain: TViewMain
   Font.Style = []
   TextHeight = 15
   object Button1: TButton
-    Left = 60
-    Top = 45
+    Left = 75
+    Top = 165
     Width = 75
     Height = 25
-    Caption = 'Add'
+    Caption = 'Executar'
     TabOrder = 0
   end
 end
