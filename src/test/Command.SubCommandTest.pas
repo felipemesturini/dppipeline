@@ -16,7 +16,7 @@ type
     procedure TearDown;
     [Test]
     [TestCase('TestSubtract_10_5', '10,5,5')]
-    [TestCase('TestSubtract_0_5', '0,5,-4')]
+    [TestCase('TestSubtract_0_5', '0,5,-5')]
     procedure TestSub(const AValueOne, AValueTwo, AResponse: Integer);
   end;
 
