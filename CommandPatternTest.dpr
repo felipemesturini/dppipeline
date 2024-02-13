@@ -10,6 +10,7 @@ uses
   TestInsight.DUnitX,
   {$ELSE}
   DUnitX.Loggers.Console,
+  DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
   Command.SumCommandTest in 'src\test\Command.SumCommandTest.pas',
@@ -18,11 +19,13 @@ uses
   Command.SumCommand in 'src\Command\Command.SumCommand.pas',
   Command.SubCommandTest in 'src\test\Command.SubCommandTest.pas';
 
+{$IFNDEF TESTINSIGHT}
 var
   runner: ITestRunner;
   results: IRunResults;
   logger: ITestLogger;
   nunitLogger : ITestLogger;
+{$ENDIF}
 begin
 {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX.RunRegisteredTests;
@@ -53,7 +56,7 @@ begin
     if not results.AllPassed then
       System.ExitCode := EXIT_ERRORS;
 
-    {$IFNDEF CI1}
+    {$IFNDEF CI}
     //We don't want this happening when running under CI.
     if TDUnitX.Options.ExitBehavior = TDUnitXExitBehavior.Pause then
     begin
