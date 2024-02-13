@@ -73,6 +73,7 @@
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <DCC_UnitSearchPath>$(DUnitX);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <SanitizedProjectName>CommandPatternTest</SanitizedProjectName>
+        <DCC_Define>TESTINSIGHT;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>fmx;DbxCommonDriver;bindengine;IndyIPCommon;emsclient;IndyProtocols;dbxcds;FireDACSqliteDriver;DbxClientDriver;soapmidas;dbexpress;inet;FireDACDBXDriver;CustomIPTransport;IndySystem;ibxbindings;FireDACCommon;bindcompdbx;rtl;DBXSqliteDriver;DataSnapFireDAC;FireDAC;xmlrtl;ibxpress;dsnap;DataSnapNativeClient;FireDACCommonDriver;IndyIPClient;bindcompfmx;ibmonitor;fmxFireDAC;DataSnapCommon;fmxase;dbrtl;DBXInterBaseDriver;bindcomp;IndyCore;RESTBackendComponents;RESTComponents;IndyIPServer;dsnapxml;DataSnapClient;DataSnapProviderClient;emsclientfiredac;FireDACDSDriver;tethering;CloudService;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -124,7 +125,11 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="src\test\FirstCaseTest.pas"/>
+        <DCCReference Include="src\test\Command.SumCommandTest.pas"/>
+        <DCCReference Include="src\Command\Command.BaseCommand.pas"/>
+        <DCCReference Include="src\Command\Command.SubCommand.pas"/>
+        <DCCReference Include="src\Command\Command.SumCommand.pas"/>
+        <DCCReference Include="src\test\Command.SubCommandTest.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -164,7 +169,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\CommandPatternTest.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="CommandPatternTest.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>CommandPatternTest.exe</RemoteName>
                         <Overwrite>true</Overwrite>

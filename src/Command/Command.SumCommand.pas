@@ -13,7 +13,7 @@ type
     function GetResponse: Integer;
     procedure SetResponse(const AValue: Integer);
   public
-    procedure Executar(AValueOne, AValueTwo: Integer);
+    function Executar(AValueOne, AValueTwo: Integer): IBaseCommand<Integer>;
     property Response: Integer read GetResponse write SetResponse;
   end;
 
@@ -21,9 +21,10 @@ implementation
 
 { TSumCommand }
 
-procedure TSumCommand.Executar(AValueOne, AValueTwo: Integer);
+function TSumCommand.Executar(AValueOne, AValueTwo: Integer): IBaseCommand<Integer>;
 begin
-  Response := AValueOne + AValueTwo;
+  Result := Self;
+  FResponse := AValueOne + AValueTwo;
 end;
 
 function TSumCommand.GetResponse: Integer;
@@ -33,7 +34,7 @@ end;
 
 procedure TSumCommand.SetResponse(const AValue: Integer);
 begin
-  Response := AValue;
+  FResponse := AValue;
 end;
 
 end.

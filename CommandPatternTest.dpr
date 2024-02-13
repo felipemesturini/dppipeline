@@ -10,18 +10,19 @@ uses
   TestInsight.DUnitX,
   {$ELSE}
   DUnitX.Loggers.Console,
-  DUnitX.Loggers.Xml.NUnit,
   {$ENDIF }
   DUnitX.TestFramework,
-  FirstCaseTest in 'src\test\FirstCaseTest.pas';
+  Command.SumCommandTest in 'src\test\Command.SumCommandTest.pas',
+  Command.BaseCommand in 'src\Command\Command.BaseCommand.pas',
+  Command.SubCommand in 'src\Command\Command.SubCommand.pas',
+  Command.SumCommand in 'src\Command\Command.SumCommand.pas',
+  Command.SubCommandTest in 'src\test\Command.SubCommandTest.pas';
 
-{$IFNDEF TESTINSIGHT}
 var
   runner: ITestRunner;
   results: IRunResults;
   logger: ITestLogger;
   nunitLogger : ITestLogger;
-{$ENDIF}
 begin
 {$IFDEF TESTINSIGHT}
   TestInsight.DUnitX.RunRegisteredTests;

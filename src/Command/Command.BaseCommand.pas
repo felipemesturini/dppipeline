@@ -10,7 +10,7 @@ type
     procedure SetResponse(const AValue: T);
 
 
-    procedure Executar(AValueOne, AValueTwo: T);
+    function Executar(AValueOne, AValueTwo: T): IBaseCommand<T>;
     property Response: T read GetResponse write SetResponse;
   end;
 

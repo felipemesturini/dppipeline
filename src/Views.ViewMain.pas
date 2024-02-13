@@ -12,11 +12,15 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, Vcl.Samples.Spin;
 
 type
   TViewMain = class(TForm)
-    Button1: TButton;
+    btnExecute: TButton;
+    edtValueOne: TSpinEdit;
+    edtValueTwo: TSpinEdit;
+    edtResult: TSpinEdit;
+    procedure btnExecuteClick(Sender: TObject);
   private
   public
   end;
@@ -26,6 +30,14 @@ var
 
 implementation
 
+uses
+  Controller.Calculadora;
+
 {$R *.dfm}
+
+procedure TViewMain.btnExecuteClick(Sender: TObject);
+begin
+  edtResult.Value := TCalculadora.Sum(edtValueOne.Value, edtValueTwo.Value);
+end;
 
 end.

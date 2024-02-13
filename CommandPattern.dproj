@@ -108,6 +108,8 @@
         </DCCReference>
         <DCCReference Include="src\Command\Command.BaseCommand.pas"/>
         <DCCReference Include="src\Command\Command.SumCommand.pas"/>
+        <DCCReference Include="src\Controller.Calculadora.pas"/>
+        <DCCReference Include="src\Command\Command.SubCommand.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
